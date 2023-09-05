@@ -115,7 +115,7 @@ impl Scanner {
             self.advance();
         }
 
-        if (self.peek() == '.' && Scanner::is_digit(self.peek_next())) {
+        if self.peek() == '.' && Scanner::is_digit(self.peek_next()) {
             self.advance();
             
             while Scanner::is_digit(self.peek()) {
@@ -150,6 +150,13 @@ impl Scanner {
             token_type = *token_result.unwrap();
         }
 
+        if token_type == TokenType::True {
+            self.add_token_literal(token_type, Literal::Boolean(true));
+            return;
+        } else if token_type == TokenType::False {
+            self.add_token_literal(token_type, Literal::Boolean(false));
+            return;
+        }
         self.add_token(token_type);
     }
 

@@ -4,7 +4,6 @@ mod scanner;
 use std::fs;
 use std::env;
 
-use token::*;
 use scanner::*;
 
 fn error(line: i32, message: String) {
@@ -39,8 +38,6 @@ fn run_prompt() {
 }
 
 fn main() {
-    let mut had_error = false;
-
     let args: Vec<String> = env::args().skip(1).collect(); 
     if args.len() > 1 {
         println!("Usage : cargo run <filename>");
