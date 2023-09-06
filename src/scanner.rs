@@ -29,7 +29,7 @@ impl Scanner {
         keywords.insert(String::from("super"), TokenType::Super);
         keywords.insert(String::from("this"), TokenType::This);
         keywords.insert(String::from("true"), TokenType::True);
-        keywords.insert(String::from("var"), TokenType::Var);
+        keywords.insert(String::from("let"), TokenType::Let);
         keywords.insert(String::from("while"), TokenType::While);
 
         Scanner {
